@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Computer Shop</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100" onload="checkAuth()">
+
+<!-- Navigation Bar -->
+<nav class="bg-white shadow-lg">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+            <!-- Left Section: Logo -->
+            <div class="text-xl font-semibold">TechHaven</div>
+
+            <!-- Center Section: Navigation Links -->
+            <div class="flex space-x-8 text-center">
+                <a href="home.html" class="text-gray-600 hover:text-gray-800">Home</a>
+                <a href="index.html" class="text-gray-600 hover:text-gray-800">Products</a>
+                <a href="cart.html" class="text-gray-600 hover:text-gray-800">Cart</a>
+                <a href="orders.html" class="text-gray-600 hover:text-gray-800">My Orders</a>
+                <a href="aboutus.html" class="text-gray-600 hover:text-gray-800">About Us</a>
+            </div>
+
+            <!-- Right Section: User Info and Logout Button -->
+            <div class="flex items-center space-x-6">
+                <span id="user-info" class="text-gray-600">Welcome, User</span>
+                <div class="relative">
+                    <a href="#" onclick="toggleCartSummary()" class="text-gray-600 hover:text-gray-800">
+                        <span class="text-2xl">🛒</span>
+                        <span id="cart-count"
+                              class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+                            0
+                        </span>
+                    </a>
+                    <!-- Cart Summary Popup -->
+                    <div id="cart-summary" class="absolute bg-white shadow-lg p-4 rounded-lg hidden">
+                        <h3 class="font-semibold text-lg">Cart Summary</h3>
+                        <ul id="cart-items" class="mt-2"></ul>
+                        <a href="cart.html" class="mt-4 block text-blue-500">Go to Cart</a>
+                    </div>
+                </div>
+                <button onclick="logout()" class="text-red-500 hover:text-red-600">Logout</button>
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+<!-- Home Section -->
+<div class="max-w-6xl mx-auto px-4 py-8">
+    <!-- TechHAVEN Section Centered -->
+    <div class="flex flex-col items-center justify-center text-center mb-16">
+        <h1 class="text-6xl font-extrabold text-gray-800 mb-4">TechHAVEN</h1>
+        <p class="text-gray-600 mb-6">Explore our wide range of computer hardware, accessories, and software. Find what suits you best!</p>
+        <!-- Explore Now Button -->
+        <a href="index.html" class="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600">Explore Now</a>
+    </div>
+
+    <!-- New & Returning Favorites Section -->
+    <div class="mb-16 text-center">
+        <h2 class="text-2xl font-semibold mb-4">New & Returning Favorites</h2>
+        <p class="text-gray-600 mb-6">Products That Are Back In Style and New On The Market.</p>
+        <div class="grid grid-cols-3 gap-8">
+            <!-- Product 1: SteelSeries Apex Pro Mechanical Gaming Keyboard -->
+            <div class="border p-4 rounded-lg bg-white flex flex-col">
+                <div class="flex-grow mb-4">
+                    <img src="images/default/Return1(SteelSeriesApexProMechanicalGamingKeyboard).jpg" alt="SteelSeries Apex Pro Mechanical Gaming Keyboard" class="w-full h-full object-cover mx-auto">
+                </div>
+                <p class="text-center text-gray-600 mt-auto">SteelSeries Apex Pro Mechanical Gaming Keyboard</p>
+            </div>
+            <!-- Product 2: Asus ROG Zephyrus G16 -->
+            <div class="border p-4 rounded-lg bg-white flex flex-col">
+                <div class="flex-grow mb-4">
+                    <img src="images/default/Return2(AsusROGZephyrusG16).png" alt="Asus ROG Zephyrus G16" class="w-full h-full object-cover mx-auto">
+                </div>
+                <p class="text-center text-gray-600 mt-auto">Asus ROG Zephyrus G16</p>
+            </div>
+            <!-- Product 3: IdeaCentre AIO i -->
+            <div class="border p-4 rounded-lg bg-white flex flex-col">
+                <div class="mb-4">
+                    <img src="images/default/Return3(IdeaCentreAIOi).jpg" alt="IdeaCentre AIO i" class="w-full h-full object-cover mx-auto">
+                </div>
+                <p class="text-center text-gray-600 mt-auto">IdeaCentre AIO i</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Latest Notebook Section -->
+    <div class="mb-16 text-center">
+        <h2 class="text-2xl font-semibold mb-4">Latest Notebook</h2>
+        <p class="text-gray-600 mb-6">Newest Models, Unmatched Performance.</p>
+        <div class="grid grid-cols-3 gap-8">
+            <!-- Product 1: IdeaPad Slim 5i -->
+            <div class="border p-4 rounded-lg bg-white flex flex-col">
+                <div class="flex-grow mb-4">
+                    <img src="images/default/BestNotebook1.jpg" alt="IdeaPad Slim 5i" class="w-full h-full object-cover mx-auto">
+                </div>
+                <p class="text-center text-gray-600 mt-auto">IdeaPad Slim 5i</p>
+            </div>
+            <!-- Product 2: ThinkPad X1 Carbon -->
+            <div class="border p-4 rounded-lg bg-white flex flex-col">
+                <div class="flex-grow mb-4">
+                    <img src="images/default/BestNotebook2.jpg" alt="ThinkPad X1 Carbon" class="w-full h-full object-cover mx-auto">
+                </div>
+                <p class="text-center text-gray-600 mt-auto">ThinkPad X1 Carbon</p>
+            </div>
+            <!-- Product 3: HP Pavilion x360 2-in-1 -->
+            <div class="border p-4 rounded-lg bg-white flex flex-col">
+                <div class="mb-4">
+                    <img src="images/default/BestNotebook3.jpg" alt="HP Pavilion x360 2-in-1" class="w-full h-full object-cover mx-auto">
+                </div>
+                <p class="text-center text-gray-600 mt-auto">HP Pavilion x360 2-in-1</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Best Selling Section -->
+    <div class="mb-16 text-center">
+        <h2 class="text-2xl font-semibold mb-4">Best Selling</h2>
+        <p class="text-gray-600 mb-6">Top Picks Everyone’s Talking About.</p>
+        <div class="grid grid-cols-3 gap-8">
+            <!-- Product 1: Acer Aspire C -->
+            <div class="border p-4 rounded-lg bg-white flex flex-col">
+                <div class="flex-grow mb-4">
+                    <img src="images/default/BestSelling1(AcerAspireC).jpg" alt="Acer Aspire C22-1600-4505W11" class="w-full h-full object-cover mx-auto">
+                </div>
+                <p class="text-center text-gray-600 mt-auto">Acer Aspire C22-1600-4505W11</p>
+            </div>
+            <!-- Product 2: LegionPro 5i Gen9 -->
+            <div class="border p-4 rounded-lg bg-white flex flex-col">
+                <div class="flex-grow mb-4">
+                    <img src="images/default/BestSelling2(LegionPro 5i Gen9).jpg" alt="LegionPro 5i Gen9" class="w-full h-full object-cover mx-auto">
+                </div>
+                <p class="text-center text-gray-600 mt-auto">LegionPro 5i Gen9</p>
+            </div>
+            <!-- Product 3: Yoga 9i 2-in-1 -->
+            <div class="border p-4 rounded-lg bg-white flex flex-col">
+                <div class="mb-4">
+                    <!-- Adjusted height to 80% for a 20% reduction -->
+                    <img src="images/default/BestSelling3(Yoga9i2in1).jpg" alt="Yoga 9i 2-in-1" class="w-full h-[80%] object-cover mx-auto">
+                </div>
+                <p class="text-center text-gray-600 mt-auto">Yoga 9i 2-in-1</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TechHaven Choice Section -->
+    <div class="mb-16 text-center">
+        <h2 class="text-2xl font-semibold mb-4">TechHaven Choice</h2>
+        <p class="text-gray-600 mb-6">Our Top Picks for Premium Performance and Innovation.</p>
+        <div class="grid grid-cols-3 gap-8">
+            <!-- Product 1: Acer Swift Go 14 -->
+            <div class="border p-4 rounded-lg bg-white flex flex-col">
+                <div class="flex-grow mb-4">
+                    <img src="images/default/MustChoice1.jpg" alt="Acer Swift Go 14" class="w-full h-full object-cover mx-auto">
+                </div>
+                <p class="text-center text-gray-600 mt-auto">Acer Swift Go 14</p>
+            </div>
+            <!-- Product 2: Asus Zenbook 14 Oled -->
+            <div class="border p-4 rounded-lg bg-white flex flex-col">
+                <div class="flex-grow mb-4">
+                    <img src="images/default/MustChoice2.jpg" alt="Asus Zenbook 14 Oled" class="w-full h-full object-cover mx-auto">
+                </div>
+                <p class="text-center text-gray-600 mt-auto">Asus Zenbook 14 Oled</p>
+            </div>
+            <!-- Product 3: Macbook Air 13 M3 -->
+            <div class="border p-4 rounded-lg bg-white flex flex-col">
+                <div class="mb-4">
+                    <img src="images/default/MustChoice3.jpg" alt="Macbook Air 13 M3" class="w-full h-full object-cover mx-auto">
+                </div>
+                <p class="text-center text-gray-600 mt-auto">Macbook Air 13 M3</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for Authentication Check and Cart Summary -->
+<script>
+    function checkAuth() {
+        fetch('/computer_ecommerce_war_exploded/auth')
+            .then(response => response.json())
+            .then(data => {
+                if (data.authenticated) {
+                    document.getElementById('user-info').textContent = `Welcome, ${data.username}`;
+                } else {
+                    window.location.href = 'login.html';
+                }
+            })
+            .catch(error => {
+                console.error('Auth check failed:', error);
+                window.location.href = 'login.html';
+            });
+    }
+
+    function updateCartCount() {
+        fetch('/computer_ecommerce_war_exploded/api/cart')
+            .then(response => response.json())
+            .then(cart => {
+                const count = cart.items ? cart.items.reduce((total, item) => total + item.quantity, 0) : 0;
+                document.getElementById('cart-count').textContent = count;
+            })
+            .catch(console.error);
+    }
+
+    function toggleCartSummary() {
+        const cartSummary = document.getElementById('cart-summary');
+        cartSummary.classList.toggle('hidden');
+
+        if (!cartSummary.classList.contains('hidden')) {
+            loadCartItems();
+        }
+    }
+
+    function loadCartItems() {
+        fetch('/computer_ecommerce_war_exploded/api/cart')
+            .then(response => response.json())
+            .then(cart => {
+                const cartItemsContainer = document.getElementById('cart-items');
+                if (cart.items && cart.items.length > 0) {
+                    cartItemsContainer.innerHTML = cart.items.map(item =>
+                        `<li class="flex justify-between items-center text-sm py-2 border-b">
+                            <span>${item.product.name} x ${item.quantity}</span>
+                            <span class="font-semibold">$${(item.product.price * item.quantity).toFixed(2)}</span>
+                        </li>`).join('');
+                } else {
+                    cartItemsContainer.innerHTML = `<li class="text-center text-gray-500 py-4">Your cart is empty.</li>`;
+                }
+            })
+            .catch(error => {
+                console.error('Error loading cart items:', error);
+                const cartItemsContainer = document.getElementById('cart-items');
+                cartItemsContainer.innerHTML = `<li class="text-center text-red-500 py-4">Error loading cart items.</li>`;
+            });
+    }
+
+    function logout() {
+        fetch('/computer_ecommerce_war_exploded/auth/logout', {
+            method: 'POST'
+        })
+            .then(() => {
+                window.location.href = 'login.html';
+            })
+            .catch(error => {
+                console.error('Logout failed:', error);
+                alert('Logout failed. Please try again.');
+            });
+    }
+
+    // Call the updateCartCount function when page loads
+    document.addEventListener('DOMContentLoaded', function () {
+        updateCartCount();
+    });
+</script>
+
+</body>
+
+</html>
+

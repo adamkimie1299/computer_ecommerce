@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#f3f4f6"/>
+  
+  <!-- Image icon -->
+  <rect x="160" y="100" width="80" height="60" fill="none" stroke="#9ca3af" stroke-width="4"/>
+  <polyline points="160,140 180,120 200,140" stroke="#9ca3af" stroke-width="4" fill="none"/>
+  <circle cx="200" cy="115" r="6" fill="#9ca3af"/>
+  
+  <!-- Text -->
+  <text x="200" y="200" font-family="Arial" font-size="16" fill="#6b7280" text-anchor="middle">
+    No Image Available
+  </text>
+</svg>
